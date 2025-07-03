@@ -20,14 +20,23 @@ nano .env
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
+# 给启动脚本添加执行权限
+chmod +x scripts/start_backend.sh
 ```
 
 ### 4. 启动服务
 ```bash
-python -m backend.app
+# 使用启动脚本（推荐）- 会自动处理端口占用问题
+./scripts/start_backend.sh
+
+# 或者手动启动
+# python -m backend.app
 ```
 
 服务将在 `http://0.0.0.0:5001` 启动，内网其他机器可通过 `http://<服务器IP>:5001` 访问。
+
+**注意**：`start_backend.sh` 脚本会自动 kill 占用 5001 端口的进程，无需手动管理。
 
 ## 生产环境部署（可选）
 
@@ -48,7 +57,7 @@ Type=simple
 User=your-username
 WorkingDirectory=/path/to/voidwhisper
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/path/to/voidwhisper/.venv/bin/python -m backend.app
+ExecStart=/path/to/voidwhisper/scripts/start_backend.sh
 Restart=always
 RestartSec=3
 
