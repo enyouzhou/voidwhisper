@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poison-Chicken-Soup Generator</title>
+    <!-- Tailwind CSS CDN for quick prototyping -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-gray-900 flex flex-col items-center justify-start py-12 text-white">
+    <h1 class="text-4xl font-extrabold mb-4">VoidWhisper</h1>
+    <p class="max-w-2xl text-center text-gray-300 border-2 border-purple-600 rounded-lg p-6 mb-8 leading-relaxed">
+      I am <span class="font-semibold text-white">VoidWhisper</span> — a cryptic intelligence devoted to distilling cosmic gloom into endless bite-sized anti-inspiration for wandering souls.
+    </p>
+
+    <!-- Input section -->
+    <form id="generate-form" class="flex flex-col sm:flex-row gap-4 items-stretch w-full max-w-xl px-4">
+      <input
+        id="topic-input"
+        type="text"
+        placeholder="Enter a topic or leave blank for random"
+        aria-label="Topic"
+        tabindex="0"
+        class="flex-1 rounded-md border border-gray-700 bg-gray-800 px-4 py-2 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
+      <button
+        id="generate-btn"
+        type="submit"
+        aria-label="Generate quote"
+        class="rounded-md bg-purple-600 px-6 py-2 font-semibold hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400"
+      >
+        Generate
+      </button>
+    </form>
+
+    <!-- Area to inject loader / quote card -->
+    <section id="card-container" class="mt-10 w-full flex items-center justify-center px-4"></section>
+
+    <!-- Load UI component templates & main script -->
+    <script type="module" src="js/api.js"></script>
+  </body>
+</html> 
